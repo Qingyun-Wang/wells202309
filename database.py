@@ -23,4 +23,6 @@ def query_db(depth_min, grad_min):
     return results
 
 if __name__ == '__main__':
-    
+    depth_min=2000
+    grad_min=0.1
+    print(query_db(depth_min, grad_min))

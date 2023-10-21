@@ -9,17 +9,16 @@ def query_db(depth_min, grad_min):
     
     engine=create_engine(URL_DB)
 
-    conn=engine.connect()
+#    conn=engine.connect()
 
     query = f"""SELECT latitude, longitude, depth, gradient
                 FROM wells
                 WHERE depth > {depth_min} AND gradient > {grad_min}
 
             """
-    results = conn.execute(query).fetchall()
-
-    conn.close()
-
+    with engine.connect() as conn:
+        results = conn.execute(query).fetchall()
+        
     return results
 
 if __name__ == '__main__':

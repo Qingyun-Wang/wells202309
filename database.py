@@ -1,3 +1,4 @@
+
 from sqlalchemy import create_engine, text
 import os
 
@@ -26,3 +27,4 @@ if __name__ == '__main__':
     depth_min = float(sys.argv[1])
     grad_min = float(sys.argv[2])
     print(query_db(depth_min, grad_min))
+    
